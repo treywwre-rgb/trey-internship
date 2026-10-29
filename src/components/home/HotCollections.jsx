@@ -1,7 +1,5 @@
 import React  from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -44,7 +42,8 @@ const HotCollections = () => {
             {collections.length > 0 && (
               <Slider {...settings}>
                 {collections.map((collection) => (
-                  <div key={collection.id}>
+  <div key={collection.id}>
+    <h3>{collection.title}</h3>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to={`/item-details/${collection.id}`}>
