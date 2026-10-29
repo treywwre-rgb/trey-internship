@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
@@ -6,7 +7,7 @@ const HotCollections = () => {
   useEffect(() => {
     async function fetchCollections() {
       try {
-        const response = await fetch("YOUR_API_ENDPOINT");
+        const response = await fetch(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`);
         if (!response.ok) {
           throw new Error("Failed to fetch collections");
         }
@@ -22,17 +23,9 @@ const HotCollections = () => {
     fetchCollections();
   }, []);
 
-  <OwlCarousel
-  className="owl-theme"
-  loop
-  margin={20}
-  nav
-  responsive={{
-    0: { items: 1 },
-    600: { items: 2 },
-    1000: { items: 4 },
-  }}
->
+
+  return (
+    <>
   {collections.map((collection) => (
     <div className="nft_coll" key={collection.id}>
       <div className="nft_wrap">
@@ -54,7 +47,8 @@ const HotCollections = () => {
         </div>
     </div>
   ))}
-</OwlCarousel>
+    </>
+  );
 };
 
 export default HotCollections;
