@@ -22,7 +22,7 @@ const HotCollections = () => {
   }, []);
   const settings = {
   dots: true,
-  infinite: collections.length > 4,
+  infinite: true,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -42,8 +42,8 @@ const HotCollections = () => {
             {collections.length > 0 && (
               <Slider {...settings}>
                 {collections.map((collection) => (
-  <div key={collection.id}>
-    <h3>{collection.title}</h3>
+                <div key={collection.id}>
+                  <h3>{collection.title}</h3>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to={`/item-details/${collection.id}`}>
