@@ -1160,13 +1160,13 @@ text-shadow: none;
 	/* Slick slider styles */
 
 	.slick-slider {
-  position: relative;
-  z-index: 10;
-}
+	position: relative;
+	z-index: 10;
+	}
 
-.slick-dots {
-  position: relative;
-  bottom: 0;
-  z-index: 11;
-}
+	.slick-dots {
+	position: relative;
+	bottom: 0;
+	z-index: 11;
+	}
 	

@@ -38,12 +38,12 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-lg-12">
+          <div className="col-lg-12" key={collections[0]?.id}>
             {collections.length > 0 && (
               <Slider {...settings}>
                 {collections.map((collection) => (
-                <div key={collection.id}>
-                  <h3>{collection.title}</h3>
+                <><div key={collection.id}>
+                    <h3>{collection.title}</h3>
                     <div className="nft_coll">
                       <div className="nft_wrap">
                         <Link to={`/item-details/${collection.id}`}>
@@ -64,6 +64,11 @@ const HotCollections = () => {
                       </div>
                     </div>
                   </div>
+                  <div className="slick-nav">
+                    <button className="slick-prev">Previous</button>
+                    <button className="slick-next">Next</button>
+                    </div>
+                    </>
                 ))}
               </Slider>
             )}
