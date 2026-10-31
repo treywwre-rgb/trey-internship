@@ -1170,3 +1170,22 @@ text-shadow: none;
 	z-index: 11;
 	}
 	
+	/* Slick Arrows */
+	.slick-prev,
+	.slick-next {
+	z-index: 10;
+	}
+
+	.slick-prev {
+	left: 10px;
+	}
+
+	.slick-next {
+	right: 10px;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+	color: #000;
+	font-size: 24px;
+	}
