@@ -16714,3 +16714,24 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+
+/* Slick Arrows */
+#section-collections .slick-prev,
+#section-collections .slick-next {
+  z-index: 10;
+}
+
+#section-collections .slick-prev {
+  left: 10px;
+}
+
+#section-collections .slick-next {
+  right: 10px;
+}
+
+#section-collections .slick-prev:before,
+#section-collections .slick-next:before {
+  color: white;
+  font-size: 24px;
+}
