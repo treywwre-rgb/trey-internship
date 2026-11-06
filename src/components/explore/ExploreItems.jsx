@@ -1,9 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Skeleton from "../UI/Skeleton";  
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import { useState, useEffect} from "react";
 
 const ExploreItems = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate API call
+    setTimeout(() => {
+      setLoading(false); // Set loading to false once data is fetched
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="row">
+        {new Array(8).fill(0).map((_, index) => (
+          <div className="col-12 col-sm-6 col-lg-3" key={index}>
+            <Skeleton />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
       <div>
@@ -17,7 +41,7 @@ const ExploreItems = () => {
       {new Array(8).fill(0).map((_, index) => (
         <div
           key={index}
-          className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+          className="d-item col-12 col-sm-6 col-lg-3"
           style={{ display: "block", backgroundSize: "cover" }}
         >
           <div className="nft__item">
