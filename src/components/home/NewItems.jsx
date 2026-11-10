@@ -79,14 +79,16 @@ const NewItems = () => {
                     </div>
 
                     <Link to="/item-details">
-                    <img
-                      src={item.nftImage || nftImage}
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = nftImage;
-                      }}
-                      className="lazy nft__item_preview"
-                      alt=""
+                   <img
+                        src={item.nftImage}
+                        className="nft__item_preview"
+                        alt={item.title}
+                        style={{
+                          width: "100%",
+                          height: "200px",
+                          objectFit: "cover",
+                          display: "block",
+                        }}
                       />
                     </Link>
                   </div>
