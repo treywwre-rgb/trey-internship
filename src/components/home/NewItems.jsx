@@ -14,8 +14,9 @@ const NewItems = () => {
     const fetchItems = async () => {
       try {
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`);
+        console.log(response.data);
+        console.log("First NFT image:", response.data[0]?.nftImage);
         setItems(response.data);
-        
       } catch (error) {
         console.error("Error fetching new items:", error);
       }
@@ -34,13 +35,14 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <Slider
-            dots={true}
-            infinite={true}
-            speed={500}
-            slidesToShow={4}
-            slidesToScroll={4}
-          >
+          {items.length > 0 && (
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={4}
+              slidesToScroll={1}
+            >
             {items.map((item) => (
               <div className="col-12 col-sm-6 col-lg-3" key={item.id}>
                 <div className="nft__item">
@@ -102,6 +104,7 @@ const NewItems = () => {
               </div>
             ))}
           </Slider>
+          )}
         </div>
       </div>
     </section>
