@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Slider from "react-slick";
@@ -16,6 +15,7 @@ const NewItems = () => {
       try {
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`);
         setItems(response.data);
+        
       } catch (error) {
         console.error("Error fetching new items:", error);
       }
@@ -77,10 +77,14 @@ const NewItems = () => {
                     </div>
 
                     <Link to="/item-details">
-                      <img
-                        src={item.nftImage}
-                        className="lazy nft__item_preview"
-                        alt=""
+                    <img
+                      src={item.nftImage || nftImage}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = nftImage;
+                      }}
+                      className="lazy nft__item_preview"
+                      alt=""
                       />
                     </Link>
                   </div>
