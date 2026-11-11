@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import nftImage from "../../images/nftImage.jpg";
+import nftImage from "../../images/nftImage.jpg";   
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+const img = document.querySelector(
+  "#section-items .nft__item_preview"
+);
 
+console.log("Image URL:", img?.src);
+console.log("Loaded:", img?.complete);
+console.log("Image width:", img?.naturalWidth);
+console.log("Image height:", img?.naturalHeight);
 
 const NewItems = () => {
   const [items, setItems] = React.useState([]);
