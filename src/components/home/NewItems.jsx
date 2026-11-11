@@ -5,14 +5,6 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const img = document.querySelector(
-  "#section-items .nft__item_preview"
-);
-
-console.log("Image URL:", img?.src);
-console.log("Loaded:", img?.complete);
-console.log("Image width:", img?.naturalWidth);
-console.log("Image height:", img?.naturalHeight);
 
 const NewItems = () => {
   const [items, setItems] = React.useState([]);
@@ -31,6 +23,30 @@ const NewItems = () => {
 
     fetchItems();
   }, []);
+    const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 
   return (
     <section id="section-items" className="no-bottom">
@@ -44,14 +60,10 @@ const NewItems = () => {
           </div>
           {items.length > 0 && (
             <Slider
-              dots={true}
-              infinite={true}
-              speed={500}
-              slidesToShow={4}
-              slidesToScroll={1}
+            {...settings}
             >
             {items.map((item) => (
-              <div className="col-12 col-sm-6 col-lg-3" key={item.id}>
+              <div className="px-2" key={item.id}>
                 <div className="nft__item">
                   <div className="author_list_pp">
                     <Link
@@ -90,12 +102,6 @@ const NewItems = () => {
                         src={item.nftImage}
                         className="nft__item_preview"
                         alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "200px",
-                          objectFit: "cover",
-                          display: "block",
-                        }}
                       />
                     </Link>
                   </div>
