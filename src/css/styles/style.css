@@ -16718,20 +16718,30 @@ img {
 
 /* Slick Arrows */
 #section-collections .slick-prev,
-#section-collections .slick-next {
-  z-index: 10;
+#section-collections .slick-next
+#section-items .slick-prev,
+#section-items .slick-next {
+  z-index: 20;
 }
 
-#section-collections .slick-prev {
-  left: 10px;
-}
-
-#section-collections .slick-next {
+#section-collections .slick-prev
+#section-items .slick-prev {
   right: 10px;
 }
 
+#section-collections .slick-next
+#section-items .slick-next {
+  left: 10px;
+}
+
 #section-collections .slick-prev:before,
-#section-collections .slick-next:before {
-  color: white;
-  font-size: 24px;
+#section-collections .slick-next:before,
+#section-items .slick-prev:before,
+#section-items .slick-next:before {
+  
+  color: whitesmoke;
+  caret-color: black;
+  border-radius: 2px solid black;
+  opacity: 1;
+  font-size: 50px;
 }
