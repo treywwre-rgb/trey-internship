@@ -5,6 +5,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Countdown from "../UI/Countdown";
 
 const NewItems = () => {
   const [items, setItems] = React.useState([]);
@@ -76,7 +77,7 @@ const NewItems = () => {
                       <i className="fa fa-check"></i>
                     </Link>
                   </div>
-                  <div className="de_countdown">5h 30m 32s</div>
+                  <Countdown expiryDate={item.expiryDate} /> 
 
                   <div className="nft__item_wrap">
                     <div className="nft__item_extra">
